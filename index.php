@@ -17,9 +17,7 @@ function showPIRData() {
     })
 }
 // timer to update the latest PIR data in the "data" <div>
-window.setInterval(function(){
-   showPIRData();
-}, 1000);
+window.setInterval(showPIRData, 1000);
 </script>
 
 <form action="charts.php" method="post" target="blank">
