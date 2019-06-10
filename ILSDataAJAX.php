@@ -20,17 +20,28 @@
     }
     
      // close the database connection
-    $db = NULL;   
-    
-    echo "<table border=1 >";
-    echo "<tr><td>Date Time (UTC)</td><td>DDM</td><td>RF Lvl</td><td>SDM</td><td>90Mod</td><td>150Mod</td><td>Alarm</td></tr>";
-	echo "<td width='200'>".$dt."</td>";
-	echo "<td width='80'>".$ddm."</td>";
-	echo "<td width='80'>".$rf."</td>";
-	echo "<td width='80'>".$sdm."</td>";
-	echo "<td width='80'>".$mod90."</td>";
-	echo "<td width='80'>".$mod150."</td>";
-	echo "<td width='80'>".$alarm."</td></tr>";
-    echo "</table><br><br>";
-    
+		$db = NULL;
+		
+		echo "
+			<table border=1 >
+				<tr>
+					<th>Date Time (UTC)</th>
+					<th>DDM</th>
+					<th>RF Lvl</th>
+					<th>SDM</th>
+					<th>90Mod</th>
+					<th>150Mod</th>
+					<th>Alarm</th>
+				</tr>
+				<tr>
+					<td width='200'>$dt</td>
+					<td width='80'>$ddm</td>
+					<td width='80'>$rf</td>
+					<td width='80'>$sdm</td>
+					<td width='80'>$mod90</td>
+					<td width='80'>$mod150</td>
+					<td width='80'>$alarm</td></tr>
+				</tr>
+			</table>
+		";
 ?>
