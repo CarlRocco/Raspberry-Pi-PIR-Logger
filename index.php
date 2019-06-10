@@ -4,17 +4,53 @@
   <div style="background-color:darkblue">
     <h1 style="margin-left: 20px"><font color="white">PIR Logger</font></h1>
   </div><br>
+
+  <style>
+    th {
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
 
-<div id="data"></div>
+<div id="data">
+  <table style="border: 1">
+    <tr>
+      <th>Date Time (UTC)</th>
+      <th>DDM</th>
+      <th>RF Lvl</th>
+      <th>SDM</th>
+      <th>90Mod</th>
+      <th>150Mod</th>
+      <th>Alarm</th>
+    </tr>
+    <tr>
+      <td width='200' id='dt'>Loading..</td>
+      <td width='80' id='ddm'>Loading..</td>
+      <td width='80' id='rfLevel'>Loading..</td>
+      <td width='80' id='sdm'>Loading..</td>
+      <td width='80' id='mod90'>Loading..</td>
+      <td width='80' id='mod150'>Loading..</td>
+      <td width='80' id='alarm'>Loading..</td>
+    </tr>
+  </table>
+</div>
+
 <script>
+const renderTableData = (data) => {
+  console.log(data)
+  for (let [key, val] of Object.entries(data)) {
+    document.getElementById(key).textContent = val
+  }
+}
+
 function showPIRData() {
   fetch('ILSDataAJAX.php')
-    .then(response => response.text())
-    .then(responseText => {
-      document.getElementById("data").innerHTML = responseText;
-    })
+    .then(response => response.json())
+    .then(renderTableData)
+    // .then(responseText => {
+    //   document.getElementById("data").innerHTML = responseText;
+    // })
 }
 // timer to update the latest PIR data in the "data" <div>
 window.setInterval(showPIRData, 1000);
